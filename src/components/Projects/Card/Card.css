@@ -1,0 +1,183 @@
+.card{
+    padding: 0;
+    border-radius: var(--border-radius-3);
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    transition: background 200ms, border 200ms;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: zoomIn 400ms;
+}
+
+@keyframes zoomIn {
+    0%{
+        scale: 0.7;
+    }
+    100%{
+        scale: 1;
+    }
+}
+
+/* Enable hover only on non touch devices */
+@media (hover:hover) and (pointer:fine){
+    .card:hover{
+        background:  rgba(var(--card-rgb), 0.14);
+    }
+    .card:hover span{
+        transition: var(--transition);
+        transform: translateY(4px);
+    }
+}
+
+.card span{
+    display: inline-block;
+    transition: transform 200ms;
+}
+.card .title{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.card .picture{
+    height: 250px;
+    overflow: hidden;
+}
+.card .card__details{
+    flex: 1;
+    text-align: left;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.card .card__details .card__details__top{
+    border: none;
+}
+.card .card__details .card__details__middle{
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(var(--card-rgb), 0.15);
+    height: 160px;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+.card .card__details .card__details__description{
+    font-size: 14px;
+}
+.card .card__details .card__details__bottom{
+    padding: 1rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* Stack */
+
+.card .stack__container{
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+.card .stack__container .stack__left{
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    padding: 0 0.5rem;
+    border-radius: var(--border-radius-2);
+    background:  rgba(var(--card-rgb), 0.1);
+    display: flex;
+    align-items: center;
+
+}
+.card .stack__container .stack__right{
+    flex: 1;
+}
+
+.card .stack__container .stack__right .stack__box__container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 0.5rem;
+}
+.card .stack__container .stack__right .stack__box__container
+.stack__box .stack__icon__container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 14px;
+
+}
+.card .stack__container .stack__right .stack__box__container
+.stack__box .stack__icon__container .stack__icon{
+    display: flex;
+    align-items: center;
+}
+.card .stack__container .stack__right .stack__box, .stack__view__more{
+    border-radius: var(--border-radius-2);
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    padding: 0.5rem;
+}
+
+.card .stack__view__more{
+    width: 100%;
+    padding: 1rem 0.5rem;
+    margin-top: 1rem;
+    position: relative;
+    font-size: 14px;
+    cursor: pointer;
+}
+.card .stack__view__more .more__btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card .satck__view__more .stack__expend__box{
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    padding: 2rem 1rem;
+    background: var(--color-ui-2);
+    border-radius: var(--border-radius-2);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: none;
+}
+
+.card .stack__view__more .open__stack__expend__box{
+    display: block;
+}
+.card .stack__view__more .stack__expend__box .title{
+    margin-bottom: 1rem;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.card .button__container{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   
+}
+
+.card .button__container .btn__share{
+    border: 1px solid transparent !important;
+    transition: var(--transition);
+    width: 2.5rem;
+    aspect-ratio: 1/1;
+    border-radius: var(--border-radius-5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.card .button__container .btn__share:hover{
+    background: rgba(var(--card-rgb), 0.1) !important;
+    border-color: rgba(var(--card-border-rgb), 0.15) !important;
+
+}

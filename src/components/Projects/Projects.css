@@ -1,0 +1,61 @@
+#projects nav{
+    position: relative;
+    width: 100%;
+    max-width: max-content;
+    height: 50px;
+    border-radius: var(--border-radius-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 40px;
+    user-select: none;
+}
+#projects nav button{
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 0 23px;
+    z-index: 1;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+#projects .active__indicator{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    height: 100%;
+    border-radius: var(--border-radius-3);
+    transition: var(--transition);
+    cursor: pointer;
+    background: var(--gradient-1);
+}
+
+
+
+
+#projects .card__container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    text-align: center;
+    gap: 1rem;
+}
+
+@media (max-width:900px){
+    #projects .card__container{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (max-width:650px){
+    #projects .card__container{
+        grid-template-columns: 1fr;
+    }
+    #projects  nav button{
+        font-size: 14px;
+    }
+}

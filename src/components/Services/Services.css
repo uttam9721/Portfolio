@@ -1,0 +1,117 @@
+#services .services__group{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+
+#services .service{
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-3);
+    color: var(--color-text);
+    padding: 40px 25px;
+    isolation: isolate;
+    cursor: pointer;
+}
+
+#services .service::before,
+#services .service::after{
+    content: '';
+    position: absolute;
+}
+
+#services .service::before{
+    width: 200%;
+    height: 200%;
+    background-image: conic-gradient(
+        var(--color-primary),
+        transparent 60deg,
+        transparent 180deg,
+        var(--color-primary),
+        transparent 240deg
+    );
+    inset: -50%;
+    z-index: -2;
+    animation: spin 9s linear infinite;
+    animation-play-state: paused;
+}
+@keyframes spin {
+    to{
+        transform: rotate(-360deg);
+    }
+}
+#services .service:hover::before{
+    animation-play-state: running;
+}
+#services .service::after{
+    background: var(--color-ui-2);
+    inset: 0.25rem;
+    border-radius: calc(1.2rem - 0.25rem);
+    z-index: -1;
+    transition: var(--transition);
+}
+
+
+#services .service .service__top{
+    display: flex;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#services .icon__container{
+    width: 80px;
+    background: var(--color-ui-2);
+    border: solid 1px var(--color-primary);
+    margin-right: 8px;
+}
+#services .service .icon{
+    font-size: 40px;
+    color: var(--color-primary);
+}
+#services .service .title{
+    font-size: 25px;
+    background: linear-gradient(to right,var(--color-primary)0%,var(--color-primary)100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+#services .service .description{
+    text-align: center;
+    font-size: 16px;
+    line-height: 25px;
+    transition: var(--transition);
+}
+
+#services .service:hover .description{
+    color: var(--color-text);
+}
+
+#services .service .service__bottom{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+#services .service .btn.btn__primary{
+    background: linear-gradient(260deg,var(--color-secondary)0%,var(--color-primary)100%);
+    background-size: 200% auto;
+}
+
+#services .service .btn.btn__primary:hover{
+    background-position: right center !important;
+}
+
+@media(max-width:1000px){
+    #services .services__group{
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    #services .service__top{
+        display: flex;
+        align-items:center;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

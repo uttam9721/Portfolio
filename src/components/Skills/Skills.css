@@ -20,6 +20,8 @@
 @media (max-width:600px){
     #skill .skill__container{
         gap: 1rem;
+        display:flex;
+        flex-direction:column;
     }
     #skill .skill__container .skill__card{
         width: 100%;
